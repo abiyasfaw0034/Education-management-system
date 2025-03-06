@@ -52,7 +52,6 @@ const SignUp = () => {
       },
       {
         onRequest: () => {
-          //   console.log("on request");
           setPending(true);
           toast("Please Wait", {
             description: "Sunday, December 03, 2023 at 9:00 AM",
@@ -60,7 +59,6 @@ const SignUp = () => {
         },
         onSuccess: () => {
           setPending(false);
-          //   form.reset();
           toast("Account created", {
             description:
               "Your account has been created. Check your email for a verification link.",
@@ -133,9 +131,6 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
-            {/* <Button type="submit" className="w-full">
-              Submit
-            </Button> */}
             <LoadingButton pending={pending}>Submit</LoadingButton>
           </form>
         </Form>

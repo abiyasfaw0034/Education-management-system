@@ -35,7 +35,7 @@ export default async function NavBar() {
               Home
             </Link>
             <Link
-              href="/about"
+              href="/posts"
               className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               About
