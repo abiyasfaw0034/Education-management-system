@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "./ui/button";
+import { authClient } from "@/lib/auth-client";
 
 // Helper function to determine the active class
 const getActiveClass = (path: string, currentPath: string) => {
@@ -12,6 +14,16 @@ const getActiveClass = (path: string, currentPath: string) => {
 
 export default function AdminSideBar() {
   const pathname = usePathname();
+  const router = useRouter();
+  async function handleSubmit() {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/sign-in"); // redirect to login page
+        },
+      },
+    });
+  }
 
   return (
     <div className="flex flex-col space-y-2 p-4">
@@ -47,6 +59,8 @@ export default function AdminSideBar() {
           User
         </div>
       </Link>
+
+      <Button onClick={handleSubmit}>Log Out</Button>
     </div>
   );
 }

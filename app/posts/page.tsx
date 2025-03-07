@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
+import { CreatePost } from "../actions/action";
 
 export default async function PostsPage() {
   const posts = await prisma.post.findMany();
@@ -35,6 +36,27 @@ export default async function PostsPage() {
               </Link>
             </div>
           ))}
+
+          <form action={CreatePost} className="flex flex-col gap-2">
+            <input
+              type="text"
+              name="title"
+              className="px-2 py-1 rounded-sm bg-white"
+              placeholder="title"
+            />
+            <textarea
+              name="content"
+              placeholder="content"
+              rows={5}
+              className="px-2 py-1 rounded-sm bg-white"
+            />
+            <button
+              type="submit"
+              className="bg-gray-700 text-white py-2 rounded-sm"
+            >
+              Create Post
+            </button>
+          </form>
         </div>
       </div>
     </div>

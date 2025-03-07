@@ -48,13 +48,13 @@ const SignUp = () => {
         name,
         password,
         email,
-        callbackURL: "/sign-in",
+        // role: "admin",
       },
       {
         onRequest: () => {
           setPending(true);
           toast("Please Wait", {
-            description: "Sunday, December 03, 2023 at 9:00 AM",
+            description: "Signing you up",
           });
         },
         onSuccess: () => {
@@ -63,7 +63,7 @@ const SignUp = () => {
             description:
               "Your account has been created. Check your email for a verification link.",
           });
-          router.push("/sign-in");
+          router.push("/admin");
         },
         onError: (ctx) => {
           setPending(false);
@@ -139,7 +139,7 @@ const SignUp = () => {
         <p className="text-sm text-muted-foreground">
           Already have an account?{" "}
           <Link href="/sign-in" className="text-primary hover:underline">
-            Sign Up
+            Sign In
           </Link>
         </p>
       </CardFooter>

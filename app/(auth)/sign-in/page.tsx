@@ -19,7 +19,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { signInFormSchema } from "@/lib/auth-schema";
 import { authClient } from "@/lib/auth-client";
@@ -59,7 +58,7 @@ const SignIn = () => {
           toast("Welcome", {
             description: "Your have logged in to ur account.",
           });
-          router.push("/dashboard");
+          router.push("/admin");
         },
         onError: (ctx) => {
           setPending(false);
