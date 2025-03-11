@@ -10,7 +10,7 @@ export default function AdminLayout({
       <div className="my-20 col-span-1">
         <AdminSideBar />
       </div>
-      <div className="bg-gray-300 col-span-3 p-32">{children}</div>
+      <div className="bg-gray-300 col-span-3 ">{children}</div>
     </div>
   );
 }

@@ -6,12 +6,11 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { redirect } from "next/navigation";
+import { getSession } from "@/lib/currebtSession";
 
 export default async function NavBar() {
   // const [isOpen, setIsOpen] = useState(false);
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getSession();
   // const router = useRouter();
 
   return (
@@ -27,7 +26,7 @@ export default async function NavBar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex items-center space-x-6">
             <Link
               href="/"
               className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"

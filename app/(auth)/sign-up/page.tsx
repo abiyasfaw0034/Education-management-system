@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,7 +49,7 @@ const SignUp = () => {
         name,
         password,
         email,
-        // role: "admin",
+        role: "user",
       },
       {
         onRequest: () => {
@@ -60,8 +61,7 @@ const SignUp = () => {
         onSuccess: () => {
           setPending(false);
           toast("Account created", {
-            description:
-              "Your account has been created. Check your email for a verification link.",
+            description: "welcome to the site",
           });
           router.push("/admin");
         },
