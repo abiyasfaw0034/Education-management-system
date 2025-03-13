@@ -15,7 +15,7 @@ export default async function AdminDashBoard() {
   console.log(user);
   return (
     <div className="">
-      <div>this is the admin dashboard</div>
+      <div className="p-5">{user.name}</div>
 
       <div>
         Some statistics here to be shown like how many schools are registeres in

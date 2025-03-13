@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+import { Button } from "./ui/button";
 
 // Helper function to determine the active class
 const getActiveClass = (path: string, currentPath: string) => {
@@ -11,6 +13,16 @@ const getActiveClass = (path: string, currentPath: string) => {
 };
 export default function SchoolSideBar() {
   const pathname = usePathname();
+  const router = useRouter();
+  async function handleSubmit() {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/sign-in"); // redirect to login page
+        },
+      },
+    });
+  }
 
   return (
     <div className="flex flex-col space-y-2 p-4">
@@ -29,7 +41,7 @@ export default function SchoolSideBar() {
             pathname
           )}`}
         >
-          View Schools
+          View Students
         </div>
       </Link>
       <Link href="/school/addstudent">
@@ -39,7 +51,7 @@ export default function SchoolSideBar() {
             pathname
           )}`}
         >
-          Add School
+          Add Students
         </div>
       </Link>
       <Link href="/school/user">
@@ -49,6 +61,8 @@ export default function SchoolSideBar() {
           User
         </div>
       </Link>
+
+      <Button onClick={handleSubmit}>Log Out</Button>
     </div>
   );
 }

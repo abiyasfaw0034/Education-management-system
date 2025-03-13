@@ -11,6 +11,7 @@ import { getSession } from "@/lib/currebtSession";
 export default async function NavBar() {
   // const [isOpen, setIsOpen] = useState(false);
   const session = await getSession();
+  console.log(session?.user);
   // const router = useRouter();
 
   return (
@@ -27,6 +28,22 @@ export default async function NavBar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
+            <Link
+              href="/"
+              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+            >
+              {session ? session.user.name : "not logged in"}
+            </Link>
+
+            {session && (
+              <Link
+                href={session?.user.role === "admin" ? "/admin" : "/school"}
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              >
+                {session?.user.role === "admin" ? "Admin" : "school"}
+              </Link>
+            )}
+
             <Link
               href="/"
               className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"

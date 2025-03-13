@@ -59,7 +59,7 @@ const SignIn = () => {
           toast("Welcome", {
             description: "Your have logged in to ur account.",
           });
-          router.push("/admin");
+          router.push("/");
         },
         onError: (ctx) => {
           setPending(false);

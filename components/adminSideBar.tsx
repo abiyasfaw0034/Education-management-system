@@ -2,8 +2,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Button } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
+import { Button } from "./ui/button";
 
 // Helper function to determine the active class
 const getActiveClass = (path: string, currentPath: string) => {
