@@ -26,41 +26,47 @@ export default function AdminSideBar() {
   }
 
   return (
-    <div className="flex flex-col space-y-2 p-4">
-      <Link href="/admin">
-        <div className={`p-2 rounded ${getActiveClass("/admin", pathname)}`}>
-          Dashboard
-        </div>
-      </Link>
-      <Link href="/admin/listschool">
-        <div
-          className={`p-2 rounded ${getActiveClass(
-            "/admin/listschool",
-            pathname
-          )}`}
-        >
-          View Students
-        </div>
-      </Link>
-      <Link href="/admin/addschool">
-        <div
-          className={`p-2 rounded ${getActiveClass(
-            "/admin/addschool",
-            pathname
-          )}`}
-        >
-          Add Students
-        </div>
-      </Link>
-      <Link href="/admin/user">
-        <div
-          className={`p-2 rounded ${getActiveClass("/admin/user", pathname)}`}
-        >
-          User
-        </div>
-      </Link>
+    <div className="flex flex-col p-4 h-full justify-between">
+      {/* Links Section */}
+      <div className="flex flex-col space-y-4 p-4 mt-10">
+        <Link href="/admin">
+          <div className={`p-2 rounded ${getActiveClass("/admin", pathname)}`}>
+            Dashboard
+          </div>
+        </Link>
+        <Link href="/admin/listschool">
+          <div
+            className={`p-2 rounded ${getActiveClass(
+              "/admin/listschool",
+              pathname
+            )}`}
+          >
+            View Schools
+          </div>
+        </Link>
+        <Link href="/admin/addschool">
+          <div
+            className={`p-2 rounded ${getActiveClass(
+              "/admin/addschool",
+              pathname
+            )}`}
+          >
+            Add Schools
+          </div>
+        </Link>
+        <Link href="/admin/user">
+          <div
+            className={`p-2 rounded ${getActiveClass("/admin/user", pathname)}`}
+          >
+            User
+          </div>
+        </Link>
+      </div>
 
-      <Button onClick={handleSubmit}>Log Out</Button>
+      {/* Logout Button at the Bottom */}
+      <Button onClick={handleSubmit} className="w-full">
+        Log Out
+      </Button>
     </div>
   );
 }

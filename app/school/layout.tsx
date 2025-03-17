@@ -6,11 +6,16 @@ export default function SchoolLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid grid-cols-4 h-screen">
-      <div className="my-20 col-span-1">
+    <div className="flex h-screen">
+      {/* Fixed Sidebar */}
+      <div className="w-1/4 h-screen overflow-hidden">
         <SchoolSideBar />
       </div>
-      <div className="bg-gray-300 col-span-3 p-32">{children}</div>
+
+      {/* Scrollable Content */}
+      <div className="w-3/4 h-screen overflow-y-auto bg-gray-300">
+        {children}
+      </div>
     </div>
   );
 }

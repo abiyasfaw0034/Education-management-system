@@ -25,42 +25,48 @@ export default function SchoolSideBar() {
   }
 
   return (
-    <div className="flex flex-col space-y-2 p-4">
-      <Link href="/school">
-        <div className={`p-2 rounded ${getActiveClass("/school", pathname)}`}>
-          Dashboard
-        </div>
-      </Link>
-      <Link
-        href="/school/liststudent
+    <div className="flex flex-col p-4 h-full justify-between">
+      {/* Links Section */}
+      <div className="flex flex-col space-y-4 p-4 mt-10">
+        <Link href="/school">
+          <div className={`p-2 rounded ${getActiveClass("/school", pathname)}`}>
+            Dashboard
+          </div>
+        </Link>
+        <Link
+          href="/school/liststudent
         "
-      >
-        <div
-          className={`p-2 rounded ${getActiveClass(
-            "/school/liststudent",
-            pathname
-          )}`}
         >
-          View Students
-        </div>
-      </Link>
-      <Link href="/school/addstudent">
-        <div
-          className={`p-2 rounded ${getActiveClass(
-            "/school/addstudent",
-            pathname
-          )}`}
-        >
-          Add Students
-        </div>
-      </Link>
-      <Link href="/school/user">
-        <div
-          className={`p-2 rounded ${getActiveClass("/school/user", pathname)}`}
-        >
-          User
-        </div>
-      </Link>
+          <div
+            className={`p-2 rounded ${getActiveClass(
+              "/school/liststudent",
+              pathname
+            )}`}
+          >
+            View Students
+          </div>
+        </Link>
+        <Link href="/school/addstudent">
+          <div
+            className={`p-2 rounded ${getActiveClass(
+              "/school/addstudent",
+              pathname
+            )}`}
+          >
+            Add Students
+          </div>
+        </Link>
+        <Link href="/school/user">
+          <div
+            className={`p-2 rounded ${getActiveClass(
+              "/school/user",
+              pathname
+            )}`}
+          >
+            User
+          </div>
+        </Link>
+      </div>
 
       <Button onClick={handleSubmit}>Log Out</Button>
     </div>

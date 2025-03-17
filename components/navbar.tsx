@@ -1,5 +1,4 @@
 import React from "react";
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { FaBars, FaTimes } from "react-icons/fa";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
@@ -28,12 +27,14 @@ export default async function NavBar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link
-              href="/"
-              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-            >
-              {session ? session.user.name : "not logged in"}
-            </Link>
+            {session && (
+              <Link
+                href="/"
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+              >
+                {session.user.name}
+              </Link>
+            )}
 
             {session && (
               <Link
